@@ -1,0 +1,26 @@
+.logo {
+  display: flex;
+  justify-content: center;
+}
+
+.links-home {
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+  a {
+    position: relative;
+    text-decoration: none;
+    color: black;
+  }
+  .nav-active {
+    &::after {
+      content: "";
+      background: $bgcolor-border;
+      width: 110%;
+      height: 5px;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+}

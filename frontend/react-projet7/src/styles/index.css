@@ -1,1 +1,74 @@
-/* No CSS *//*# sourceMappingURL=index.css.map */
+body {
+  background-color: #9edbff;
+}
+
+.logo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.links-home {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  gap: 2em;
+}
+
+.links-home a {
+  position: relative;
+  text-decoration: none;
+  color: black;
+}
+
+.links-home .nav-active::after {
+  content: "";
+  background: #0047A3;
+  width: 110%;
+  height: 5px;
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+.formatting-form,
+label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+input {
+  border: 4px solid;
+  border-color: #0047A3;
+  margin: 1em;
+}
+
+.inscr-form,
+.login-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: 4px solid #0047A3;
+  border-radius: 20px;
+  margin-top: 2em;
+  background-color: #f2f3f4;
+  padding: 5em;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+/*# sourceMappingURL=index.css.map */
