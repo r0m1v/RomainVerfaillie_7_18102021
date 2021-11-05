@@ -15,6 +15,11 @@ const Inscription = () => {
             <label htmlFor="password">MOT DE PASSE * </label>
             <input type="text" name="password" id="password" required />
           </form>
+          <div className="formatting-form">
+            <button type="submit" className="button-form">
+              S'INSCRIRE
+            </button>
+          </div>
         </div>
       </div>
     </div>

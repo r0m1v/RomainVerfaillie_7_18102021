@@ -6,18 +6,28 @@ label {
 
 input {
   border: 4px solid;
-  border-color: $bgcolor-border;
+  border-color: $bgcolor-main;
   margin: 1em;
+  height: 2em;
+  width: 20em;
 }
 
 .inscr-form,
 .login-form {
   display: flex;
   justify-content: center;
-  border: 4px solid $bgcolor-border;
+  flex-direction: column;
+  border: 4px solid $bgcolor-main;
   border-radius: 20px;
   margin-top: 2em;
   background-color: #f2f3f4;
   padding: 5em;
-  width: fit-content;
+}
+
+.button-form {
+  border-radius: 50px;
+  background-color: $bgcolor-button;
+  margin-top: 2em;
+  border: solid $bgcolor-main;
+  padding: 1em;
 }

@@ -1,6 +1,7 @@
 .logo {
   display: flex;
   justify-content: center;
+  height: 550px;
 }
 
 .links-home {
@@ -15,7 +16,7 @@
   .nav-active {
     &::after {
       content: "";
-      background: $bgcolor-border;
+      background: $bgcolor-main;
       width: 110%;
       height: 5px;
       position: absolute;
