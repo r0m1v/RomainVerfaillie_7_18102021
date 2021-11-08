@@ -13,11 +13,11 @@ const Inscription = () => {
       <div className="formatting-form">
         <form className="inscr-form" onSubmit={handleSubmit(onSubmit)}>
           <label htmlFor="userName">PSEUDO * </label>
-          <input type="text" name="userName"  id="username" required />
+          <input type="text" name="userName" id="username" {...register("userName")} required />
           <label htmlFor="email">ADRESSE EMAIL * </label>
-          <input type="text" name="email" id="email" required />
+          <input type="text" name="email" id="email"/>
           <label htmlFor="password">MOT DE PASSE * </label>
-          <input type="text" name="password" id="password" required />
+          <input type="password" name="password" id="password"/>
           <div className="formatting-form">
             <button type="submit" className="button-form formatting-form">
               S'INSCRIRE

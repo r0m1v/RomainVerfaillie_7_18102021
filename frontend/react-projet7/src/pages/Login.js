@@ -10,7 +10,7 @@ const Login = () => {
           <label htmlFor="email">ADRESSE EMAIL * </label>
           <input type="text" name="email" id="email" required />
           <label htmlFor="password">MOT DE PASSE * </label>
-          <input type="text" name="password" id="password" required />
+          <input type="password" name="password" id="password" required />
           <div className="formatting-form">
             <button type="submit" className="button-form">
               SE CONNECTER
