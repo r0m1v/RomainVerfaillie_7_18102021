@@ -10,6 +10,7 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   height: 550px;
+  margin-top: -10em;
 }
 
 .links-home {
@@ -74,6 +75,7 @@ input {
   margin-top: 2em;
   background-color: #f2f3f4;
   padding: 5em;
+  margin-bottom: 4em;
 }
 
 .button-form {
@@ -82,5 +84,6 @@ input {
   margin-top: 2em;
   border: solid #0047a3;
   padding: 1em;
+  font-weight: 600;
 }
 /*# sourceMappingURL=index.css.map */
