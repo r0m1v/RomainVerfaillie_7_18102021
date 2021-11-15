@@ -7,7 +7,7 @@ import * as yup from "yup";
 const schema = yup.object().shape({
   userName: yup.string().required(),
   email: yup.string().email().required(),
-  password: yup.string().required(),
+  password: yup.string().min(4).required(),
 });
 
 const Inscription = () => {
@@ -21,7 +21,7 @@ const Inscription = () => {
   };
 
   console.log(errors);
-  
+
   return (
     <div>
       <Navigation />
@@ -39,6 +39,7 @@ const Inscription = () => {
           />
           <label htmlFor="email">ADRESSE EMAIL * </label>
           <input
+            style={{ textTransform: "lowercase" }}
             defaultValue={"johndoe@gmail.com"}
             type="text"
             name="email"

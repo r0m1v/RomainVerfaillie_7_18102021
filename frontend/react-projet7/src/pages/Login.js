@@ -8,7 +8,7 @@ const Login = () => {
       <div className="formatting-form">
         <form className="login-form">
           <label htmlFor="email">ADRESSE EMAIL * </label>
-          <input type="text" name="email" id="email" required />
+          <input type="text" name="email" id="email" style={{ textTransform: "lowercase" }}/>
           <label htmlFor="password">MOT DE PASSE * </label>
           <input type="password" name="password" id="password" required />
           <div className="formatting-form">
