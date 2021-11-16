@@ -17,6 +17,9 @@ const Navigation = () => {
         <NavLink exact to="/connexion" activeClassName="nav-active">
           <h2><i className="fas fa-user"></i> Connexion</h2>
         </NavLink>
+        <NavLink exact to="/account" activeClassName="nav-active">
+          <h2>account</h2>
+        </NavLink>
       </div>
     </div>
   );

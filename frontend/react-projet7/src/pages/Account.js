@@ -1,15 +1,23 @@
-import React from 'react';
+import React from "react";
 
 const Account = () => {
-    return (
-        <div className="account">
-            <form>
-                <input type="texte" placeholder="Pseudo"></input>
-                <textarea placeholder="Message"></textarea>
-                <input type="submit" value="Publier"></input>
-            </form>
-        </div>
-    );
+  return (
+    <div className="account">
+      <div className="logo">
+        <img src="./images/icon-white.png" alt="logo" />
+      </div>
+      <div className="formatting-top-account">
+        <h1>Affichage pseudo</h1>
+        <button>SE DÉCONNECTER</button>
+      </div>
+
+      <form className="account-form">
+        <button>Choisir un fichier</button>
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Publier</button>
+      </form>
+    </div>
+  );
 };
 
 export default Account;

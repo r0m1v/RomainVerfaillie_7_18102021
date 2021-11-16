@@ -12,6 +12,10 @@ input {
   width: 20em;
 }
 
+textarea{
+  resize: none;
+}
+
 .inscr-form,
 .login-form {
   display: flex;
@@ -23,6 +27,11 @@ input {
   background-color: #f2f3f4;
   padding: 5em;
   margin-bottom: 4em;
+}
+
+.account-form{
+  display:flex;
+  flex-direction: column;
 }
 
 .button-form {
