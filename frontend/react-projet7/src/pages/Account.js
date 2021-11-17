@@ -7,15 +7,36 @@ const Account = () => {
         <img src="./images/icon-white.png" alt="logo" />
       </div>
       <div className="formatting-top-account">
-        <h1>Affichage pseudo</h1>
-        <button>SE DÉCONNECTER</button>
-      </div>
+        <div className="framework-profil">
+          <form url="/upload-picture" enctype="multipart/form-data">
+            <label for="avatar">
+              <i class="fas fa-camera"></i>
+            </label>
 
-      <form className="account-form">
-        <button>Choisir un fichier</button>
-        <textarea placeholder="Message"></textarea>
-        <button type="submit">Publier</button>
-      </form>
+            <input
+              className="input-profil"
+              type="file"
+              id="avatar"
+              name="avatar"
+              onchange="previewPicture(this)"
+              accept="image/png, image/jpeg"
+            />
+          </form>
+        </div>
+
+        <h1>Profil de </h1>
+        <button className="button-form-account" type="submit">
+          SE DÉCONNECTER
+        </button>
+      </div>
+      <div className="formatting-newpost">
+        <form className="account-form">
+          <h1>Nouveau post :</h1>
+          <textarea placeholder="Message"></textarea>
+          <input type="file"></input>
+          <button type="submit">Publier</button>
+        </form>
+      </div>
     </div>
   );
 };

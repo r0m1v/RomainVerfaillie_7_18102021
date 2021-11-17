@@ -31,6 +31,7 @@ const Inscription = () => {
           <br />
           <label htmlFor="userName">PSEUDO * </label>
           <input
+            className="field-inscr"
             defaultValue={"JohnDoe"}
             type="text"
             name="userName"
@@ -39,6 +40,7 @@ const Inscription = () => {
           />
           <label htmlFor="email">ADRESSE EMAIL * </label>
           <input
+            className="field-inscr"
             style={{ textTransform: "lowercase" }}
             defaultValue={"johndoe@gmail.com"}
             type="text"
@@ -48,6 +50,7 @@ const Inscription = () => {
           />
           <label htmlFor="password">MOT DE PASSE * </label>
           <input
+            className="field-inscr"
             defaultValue={"1234"}
             type="password"
             name="password"

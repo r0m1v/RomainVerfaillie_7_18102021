@@ -8,9 +8,9 @@ const Login = () => {
       <div className="formatting-form">
         <form className="login-form">
           <label htmlFor="email">ADRESSE EMAIL * </label>
-          <input type="text" name="email" id="email" style={{ textTransform: "lowercase" }}/>
+          <input className="field-inscr" type="text" name="email" id="email" style={{ textTransform: "lowercase" }}/>
           <label htmlFor="password">MOT DE PASSE * </label>
-          <input type="password" name="password" id="password" required />
+          <input className="field-inscr" type="password" name="password" id="password" required />
           <div className="formatting-form">
             <button type="submit" className="button-form">
               SE CONNECTER
