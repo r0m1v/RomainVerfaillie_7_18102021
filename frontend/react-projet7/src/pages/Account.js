@@ -19,7 +19,7 @@ const Account = () => {
               id="avatar"
               name="avatar"
               onchange="previewPicture(this)"
-              accept="image/png, image/jpeg"
+              accept="image/png, image/jpeg, image/gif"
             />
           </form>
         </div>
@@ -32,7 +32,7 @@ const Account = () => {
       <div className="formatting-newpost">
         <form className="account-form">
           <h1>Nouveau post :</h1>
-          <textarea placeholder="Message"></textarea>
+          <textarea maxlength="280" placeholder="280 caractères max"></textarea>
           <input type="file"></input>
           <button type="submit">Publier</button>
         </form>

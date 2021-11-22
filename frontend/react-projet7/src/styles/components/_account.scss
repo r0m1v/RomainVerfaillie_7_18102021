@@ -1,3 +1,8 @@
+.account {
+  width: 80%;
+  margin: auto;
+}
+
 .formatting-top-account {
   display: flex;
   justify-content: space-between;
@@ -27,10 +32,10 @@
   padding: 1em;
 }
 
-.button-form-account{
-    height: 50px;
-    position: relative;
-    bottom: -50px;
-    border-radius: 50px;
-    border: solid $bgcolor-main;
+.button-form-account {
+  height: 50px;
+  position: relative;
+  bottom: -50px;
+  border-radius: 50px;
+  border: solid $bgcolor-main;
 }

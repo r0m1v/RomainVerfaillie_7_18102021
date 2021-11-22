@@ -40,6 +40,52 @@ body {
           transform: translateX(-50%);
 }
 
+.account {
+  width: 80%;
+  margin: auto;
+}
+
+.formatting-top-account {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.input-profil {
+  display: none;
+}
+
+.framework-profil {
+  border: solid 3px white;
+  width: 100px;
+  height: 100px;
+}
+
+.fa-camera {
+  position: relative;
+  top: 85px;
+  left: 50px;
+}
+
+.formatting-newpost {
+  background-color: #f2f3f4;
+  border: 4px solid #0047a3;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.button-form-account {
+  height: 50px;
+  position: relative;
+  bottom: -50px;
+  border-radius: 50px;
+  border: solid #0047a3;
+}
+
 .formatting-form,
 label {
   display: -webkit-box;
@@ -50,12 +96,16 @@ label {
           justify-content: center;
 }
 
-input {
+.field-inscr {
   border: 4px solid;
   border-color: #0047a3;
   margin: 1em;
   height: 2em;
   width: 20em;
+}
+
+textarea {
+  resize: none;
 }
 
 .inscr-form,
@@ -76,6 +126,16 @@ input {
   background-color: #f2f3f4;
   padding: 5em;
   margin-bottom: 4em;
+}
+
+.account-form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .button-form {
