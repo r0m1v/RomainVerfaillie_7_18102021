@@ -14,6 +14,7 @@ exports.signup = (req, res, next) => {
     .hash(req.body.password, 10) //nombre de fois ou on fait l'algorythme de hachage
     .then((hash) => {
       const user = new User({
+        userName: req.body.username,
         email: req.body.email, //addresse fournit dans le corp de la requête
         password: hash,
       });

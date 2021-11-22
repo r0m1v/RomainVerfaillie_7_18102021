@@ -1,6 +1,7 @@
 require("dotenv").config();
 require("./config/db");
 require("./models/index");
+const userRoutes = require("./routes/user");
 
 const express = require("express");
 
@@ -28,6 +29,6 @@ app.listen(8080, (req, res, next) => {
   console.log("appli lancée");
 });
 
-//app.use("/api/auth", userRoutes); //route attendu par le frontend
+app.use("/api/auth", userRoutes); //route attendu par le frontend
 
 module.exports = app;
