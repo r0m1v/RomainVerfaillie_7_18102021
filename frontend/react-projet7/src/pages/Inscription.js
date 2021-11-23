@@ -5,38 +5,60 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 const schema = yup.object().shape({
-  userName: yup.string().required(),
+  username: yup.string().required(),
   email: yup.string().email().required(),
-  password: yup.string().min(4).required(),
+  password: yup.string().min(6).required(),
 });
 
 const Inscription = () => {
-  const { register, handleSubmit, formState, errors } = useForm({
+  const [message, setMessage] = React.useState(null);
+  const { register, handleSubmit, formState, setError } = useForm({
     mode: "onChange",
     resolver: yupResolver(schema),
   });
-  const { isSubmitting, isSubmitSuccessful } = formState;
-  const onSubmit = (data) => {
-    console.log(data);
-  };
+  const { errors, isSubmitting, isSubmitSuccessful } = formState;
+  const onSubmit = async (data) => {
+    try {
+      const res = await fetch("http://localhost:8080/api/auth/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      const responseData = await res.json();
 
-  console.log(errors);
+      if (+res.status >= 400) {
+        throw new Error(responseData.error);
+      }
+      setMessage(responseData.message);
+    } catch (err) {
+      // faire en sorte d'afficher un message d'erreur pour l'utilisateur
+      setError("username", {
+        type: "manual",
+        message: err.message,
+      });
+      setMessage(err.message);
+    }
+  };
+  console.log({ errors });
 
   return (
     <div>
       <Navigation />
       <div className="formatting-form">
+        {message && <p style={{ color: "red" }}>{message}</p>}
         <form className="inscr-form" onSubmit={handleSubmit(onSubmit)}>
           {isSubmitSuccessful && <span>Merci pour l'inscription</span>}
           <br />
-          <label htmlFor="userName">PSEUDO * </label>
+          <label htmlFor="username">PSEUDO * </label>
           <input
             className="field-inscr"
-            defaultValue={"JohnDoe"}
+            defaultValue={"Johndoe"}
             type="text"
-            name="userName"
+            name="username"
             id="username"
-            {...register("userName")}
+            {...register("username")}
           />
           <label htmlFor="email">ADRESSE EMAIL * </label>
           <input
@@ -51,7 +73,7 @@ const Inscription = () => {
           <label htmlFor="password">MOT DE PASSE * </label>
           <input
             className="field-inscr"
-            defaultValue={"1234"}
+            defaultValue={"123456"}
             type="password"
             name="password"
             id="password"

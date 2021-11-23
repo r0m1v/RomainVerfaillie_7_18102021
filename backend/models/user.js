@@ -28,14 +28,6 @@ module.exports = mongoose.model("User", UserSchema);
 // Define schema
 module.exports = (sequelize, DataTypes) => {
   const User = sequelize.define("users", {
-    email: {
-      unique: true,
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      validate: {
-        isEmail: true,
-      },
-    },
     username: {
       unique: true,
       type: DataTypes.STRING(16),
@@ -45,6 +37,15 @@ module.exports = (sequelize, DataTypes) => {
       },
       // allowNull defaults to true
     },
+    email: {
+      unique: true,
+      type: DataTypes.STRING(255),
+      allowNull: false,
+      validate: {
+        isEmail: true,
+      },
+    },
+
     password: {
       type: DataTypes.STRING(255),
       allowNull: false,

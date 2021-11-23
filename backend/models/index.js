@@ -37,7 +37,7 @@
 // module.exports = db;
 
 const sequelize = require("../config/db");
-const Sequelize = require('sequelize')
+const Sequelize = require("sequelize");
 
 sequelize
   .sync({ altre: true })
@@ -64,7 +64,5 @@ db.users = require("./user.js")(sequelize, Sequelize);
 
 // db.users.hasMany(db.messages);
 // db.messages.belongsTo(db.users);
-
-
 
 module.exports = db;

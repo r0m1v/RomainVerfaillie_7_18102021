@@ -5,25 +5,26 @@ const randomToken = process.env.JWT_SECRET_TOKEN;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const User = require("../models/user");
+const db = require("../models");
 
 //signup pour l'enregistrement de l'utilisateur
 exports.signup = (req, res, next) => {
+  console.log(req.body);
   //hacher le mot de passe (fonction asynchrone)
   bcrypt
     .hash(req.body.password, 10) //nombre de fois ou on fait l'algorythme de hachage
     .then((hash) => {
-      const user = new User({
-        userName: req.body.username,
-        email: req.body.email, //addresse fournit dans le corp de la requête
+      const user = new db.users({
+        username: req.body.username,
+        email: req.body.email, //addresse fournit dans le corps de la requête
         password: hash,
       });
       user
         .save()
         .then(() => res.status(201).json({ message: "Utilisateur créé !" }))
-        .catch((error) => res.status(400).json({ error }));
+        .catch((error) => res.status(400).json({ error: error.message }));
     })
-    .catch((error) => res.status(500).json({ error }));
+    .catch((error) => res.status(422).json({ error: error.message }));
 };
 
 //login pour connecter les utilisateurs existant
