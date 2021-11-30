@@ -29,11 +29,12 @@ exports.signup = (req, res, next) => {
 
 //login pour connecter les utilisateurs existant
 exports.login = (req, res, next) => {
-  User.findOne({ email: req.body.email }) //Récupère l'utilisateur de la base qui correspond au mail entré
+  db.users
+    .findOne({ email: req.body.email }) //Récupère l'utilisateur de la base qui correspond au mail entré
     .then((user) => {
       if (!user) {
         //Si on a pas trouvé de user
-        return res.status(401).json({ error: "Utilisateur non trouvé !" });
+        return res.status(404).json({ error: "Utilisateur non trouvé !" });
       }
       //Pour comparer le mdp envoyé avec la requête avec le hache enregistré dans le user
       bcrypt
