@@ -1,5 +1,5 @@
 .formatting-form,
-label {
+label{
   display: flex;
   justify-content: center;
 }
@@ -41,4 +41,16 @@ textarea{
   border: solid $bgcolor-main;
   padding: 1em;
   font-weight: 600;
+}
+
+.mess-thx{
+  display: flex;
+  justify-content: center;
+  color: green;
+}
+
+.mess-err{
+  display: flex;
+  justify-content: center;
+  color: red;
 }

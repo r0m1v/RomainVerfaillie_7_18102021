@@ -30,7 +30,7 @@ exports.signup = (req, res, next) => {
 //login pour connecter les utilisateurs existant
 exports.login = (req, res, next) => {
   db.users
-    .findOne({ email: req.body.email }) //Récupère l'utilisateur de la base qui correspond au mail entré
+    .findOne({ where: { email: req.body.email } }) //Récupère l'utilisateur de la base qui correspond au mail entré
     .then((user) => {
       if (!user) {
         //Si on a pas trouvé de user
@@ -45,8 +45,8 @@ exports.login = (req, res, next) => {
             return res.status(401).json({ error: "Mot de passe incorrect !" });
           }
           res.status(200).json({
-            userId: user._id,
-            token: jwt.sign({ userId: user._id }, randomToken, {
+            userId: user.id,
+            token: jwt.sign({ userId: user.id }, randomToken, {
               expiresIn: "24h",
             }),
           });
@@ -54,4 +54,18 @@ exports.login = (req, res, next) => {
         .catch((error) => res.status(500).json({ error }));
     })
     .catch((error) => res.status(500).json({ error }));
+};
+
+exports.deleteAccount = (req, res, next) => {
+  // supprime l'utilisateur dans la base avec l'id req.user.id
+  db.users
+    .destroy({
+      where: {
+        id: req.user.id
+      }
+    })
+    .then(() => {
+        return res.status(200).json({ message: "Utilisateur supprimé !" });
+    })
+    .catch((error) => res.status(400).json({ error }));
 };

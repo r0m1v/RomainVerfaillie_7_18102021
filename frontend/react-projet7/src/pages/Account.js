@@ -1,6 +1,15 @@
 import React from "react";
+//import React, { useEffect } from "react";
+//import { useForm } from "react-hook-form";
+//import Inscription from "./Inscription";
 
 const Account = () => {
+// export default Inscription = () => {
+// const { register, handleSubmit, unregister } = useForm();
+//   React.useEffect(() => {
+//     register("username", "email", "password");
+//   }, [register])
+//}
   return (
     <div className="account">
       <div className="logo">
@@ -37,6 +46,10 @@ const Account = () => {
           <button type="submit">Publier</button>
         </form>
       </div>
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
+      <button type="button" onClick={() => unregister("username", "email", "password")}>Supprimer compte</button>
+      <input type="submit" />
+    </form> */}
     </div>
   );
 };

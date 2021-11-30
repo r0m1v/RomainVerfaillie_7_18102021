@@ -38,7 +38,7 @@ const Inscription = () => {
         type: "manual",
         message: err.message,
       });
-      setMessage(err.message);
+      setMessage("Compte déjà existant");
     }
   };
   console.log({ errors });
@@ -47,9 +47,7 @@ const Inscription = () => {
     <div>
       <Navigation />
       <div className="formatting-form">
-        {message && <p style={{ color: "red" }}>{message}</p>}
         <form className="inscr-form" onSubmit={handleSubmit(onSubmit)}>
-          {isSubmitSuccessful && <span>Merci pour l'inscription</span>}
           <br />
           <label htmlFor="username">PSEUDO * </label>
           <input
@@ -64,19 +62,12 @@ const Inscription = () => {
           <input
             className="field-inscr"
             style={{ textTransform: "lowercase" }}
-            defaultValue={"johndoe@gmail.com"}
-            type="text"
-            name="email"
-            id="email"
             {...register("email")}
           />
           <label htmlFor="password">MOT DE PASSE * </label>
           <input
             className="field-inscr"
-            defaultValue={"123456"}
             type="password"
-            name="password"
-            id="password"
             {...register("password")}
           />
           <div className="formatting-form">
@@ -87,6 +78,12 @@ const Inscription = () => {
             >
               S'INSCRIRE
             </button>
+          </div>
+          <div className="mess-thx">
+            {isSubmitSuccessful && <span>Merci pour l'inscription</span>}
+          </div>
+          <div className="mess-err">
+          {message && <p style={{ color: "red" }}>{message}</p>}
           </div>
         </form>
       </div>
