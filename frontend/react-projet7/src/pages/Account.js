@@ -1,15 +1,16 @@
 import React from "react";
-//import React, { useEffect } from "react";
-//import { useForm } from "react-hook-form";
-//import Inscription from "./Inscription";
 
 const Account = () => {
-// export default Inscription = () => {
-// const { register, handleSubmit, unregister } = useForm();
-//   React.useEffect(() => {
-//     register("username", "email", "password");
-//   }, [register])
-//}
+  let dataLogin = localStorage.getItem("username");
+  const buttonLogout = () => {
+    document.getElementById("button-logout").addEventListener("click", (e) => {
+      console.log("test");
+      // e.preventDefault(localStorage.clear());
+      // dataLogin();
+      // window.location = "../Login";
+      buttonLogout();
+    });
+  };
   return (
     <div className="account">
       <div className="logo">
@@ -33,8 +34,12 @@ const Account = () => {
           </form>
         </div>
 
-        <h1>Profil de </h1>
-        <button className="button-form-account" type="submit">
+        <h1>Profil de {dataLogin}</h1>
+        <button
+          id="button-logout"
+          className="button-form-account"
+          type="submit"
+        >
           SE DÉCONNECTER
         </button>
       </div>

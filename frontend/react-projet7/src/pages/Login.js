@@ -9,7 +9,7 @@ const schema = yup.object().shape({
   password: yup.string().min(6).required(),
 });
 
-const Login = ({ Login, error }) => {
+const Login = () => {
   const [message, setMessage] = React.useState(null);
   const { register, handleSubmit, formState, setError } = useForm({
     mode: "onChange",
@@ -26,12 +26,14 @@ const Login = ({ Login, error }) => {
         body: JSON.stringify(data),
       });
       const responseData = await res.json();
-
+      console.log(responseData);
       if (+res.status >= 400) {
         throw new Error(responseData.error);
       }
       setMessage(responseData.message);
       localStorage.setItem("access_token", responseData.token);
+      localStorage.setItem("username", responseData.username);
+      window.location = "../Account";
     } catch (err) {
       // faire en sorte d'afficher un message d'erreur pour l'utilisateur
       setError("username", {
@@ -59,11 +61,17 @@ const Login = ({ Login, error }) => {
             {...register("password")}
           />
           <div className="formatting-form">
-            <button type="submit" className="button-form">
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="button-form"
+            >
               SE CONNECTER
             </button>
           </div>
+          <div className="mess-err">
           {message && <p style={{ color: "red" }}>{message}</p>}
+          </div>
         </form>
       </div>
     </div>

@@ -38,7 +38,7 @@ const Inscription = () => {
         type: "manual",
         message: err.message,
       });
-      setMessage("Compte déjà existant");
+      setMessage("Erreur");
     }
   };
   console.log({ errors });
