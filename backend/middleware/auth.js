@@ -3,7 +3,7 @@
 require("dotenv").config();
 const randomToken = process.env.JWT_SECRET_TOKEN;
 const jwt = require("jsonwebtoken");
-const db = require("../models");
+const { User } = require("../models");
 
 module.exports = async (req, res, next) => {
   try {
@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
     const decodedToken = jwt.verify(token, randomToken);
     //Permet de récupérer le userId
     const userId = decodedToken.userId;
-    const user = await db.users.findOne({ where: { id: userId } });
+    const user = await User.findOne({ where: { id: userId } });
 
     if (!user) {
       throw new Error("Impossible de trouver l'utilisateur");

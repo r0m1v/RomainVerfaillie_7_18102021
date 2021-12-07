@@ -1,71 +1,45 @@
-/* CREER UN MODELE DE DONNEES */
-/*
-const mongoose = require("mongoose");
-
-const uniqueValidator = require("mongoose-unique-validator");
-
-const UserSchema = mongoose.Schema({
-  pseudo: { type: String, required: true, unique: true },
-  email: { type: String, required: true, unique: true },
-  password: { type: String, required: true },
-});
-
-UserSchema.plugin(uniqueValidator);
-module.exports = mongoose.model("User", UserSchema);
-*/
-// const User = sequelize.define(
-//   "user",
-//   {
-//     id: { type: Sequelize.INTEGER, autoIncrement: true, primaryKey: true },
-//     userName: { type: Sequelize.STRING(255), allowNull: false },
-//     email: { type: Sequelize.STRING(255), allowNull: false, unique: true },
-//     password: { type: Sequelize.STRING(255), allowNull: false },
-//   },
-//   { tableName: "user", timestamps: false, underscored: true }
-// );
-// exports.User = User;
+const Sequelize = require("sequelize");
 
 // Define schema
-module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.define("users", {
-    username: {
-      unique: true,
-      type: DataTypes.STRING(16),
-      allowNull: false,
-      validate: {
-        len: [4, 12],
-      },
-      // allowNull defaults to true
+const User = {
+  username: {
+    unique: true,
+    type: Sequelize.STRING(16),
+    allowNull: false,
+    validate: {
+      len: [4, 12],
     },
-    email: {
-      unique: true,
-      type: DataTypes.STRING(255),
-      allowNull: false,
-      validate: {
-        isEmail: true,
-      },
+    // allowNull defaults to true
+  },
+  email: {
+    unique: true,
+    type: Sequelize.STRING(255),
+    allowNull: false,
+    validate: {
+      isEmail: true,
     },
+  },
 
-    password: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+  password: {
+    type: Sequelize.STRING(255),
+    allowNull: false,
 
-      // allowNull defaults to true
-    },
-    isAdmin: {
-      type: DataTypes.BOOLEAN,
-      allowNull: true,
-    },
-    createdAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
-    updatedAt: {
-      allowNull: false,
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-    },
-  });
-  return User;
+    // allowNull defaults to true
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    allowNull: true,
+  },
+  createdAt: {
+    allowNull: false,
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW,
+  },
+  updatedAt: {
+    allowNull: false,
+    type: Sequelize.DATE,
+    defaultValue: Sequelize.NOW,
+  },
 };
+
+module.exports = User;

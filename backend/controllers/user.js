@@ -4,8 +4,7 @@ require("dotenv").config();
 const randomToken = process.env.JWT_SECRET_TOKEN;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
-const db = require("../models");
+const { User } = require("../models");
 
 //signup pour l'enregistrement de l'utilisateur
 exports.signup = (req, res, next) => {
@@ -14,7 +13,7 @@ exports.signup = (req, res, next) => {
   bcrypt
     .hash(req.body.password, 10) //nombre de fois ou on fait l'algorythme de hachage
     .then((hash) => {
-      const user = new db.users({
+      const user = new User({
         username: req.body.username,
         email: req.body.email, //addresse fournit dans le corps de la requête
         password: hash,
@@ -29,8 +28,7 @@ exports.signup = (req, res, next) => {
 
 //login pour connecter les utilisateurs existant
 exports.login = (req, res, next) => {
-  db.users
-    .findOne({ where: { email: req.body.email } }) //Récupère l'utilisateur de la base qui correspond au mail entré
+  User.findOne({ where: { email: req.body.email } }) //Récupère l'utilisateur de la base qui correspond au mail entré
     .then((user) => {
       if (!user) {
         //Si on a pas trouvé de user
@@ -59,14 +57,13 @@ exports.login = (req, res, next) => {
 
 exports.deleteAccount = (req, res, next) => {
   // supprime l'utilisateur dans la base avec l'id req.user.id
-  db.users
-    .destroy({
-      where: {
-        id: req.user.id
-      }
-    })
+  User.destroy({
+    where: {
+      id: req.user.id,
+    },
+  })
     .then(() => {
-        return res.status(200).json({ message: "Utilisateur supprimé !" });
+      return res.status(200).json({ message: "Utilisateur supprimé !" });
     })
     .catch((error) => res.status(400).json({ error }));
 };
