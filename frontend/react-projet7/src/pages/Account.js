@@ -2,15 +2,13 @@ import React from "react";
 
 const Account = () => {
   let dataLogin = localStorage.getItem("username");
-  const buttonLogout = () => {
-    document.getElementById("button-logout").addEventListener("click", (e) => {
-      console.log("test");
-      // e.preventDefault(localStorage.clear());
-      // dataLogin();
-      // window.location = "../Login";
-      buttonLogout();
-    });
+
+  const buttonLogout = (e) => {
+    e.preventDefault();
+    localStorage.clear();
+    window.location = "../connexion";
   };
+
   return (
     <div className="account">
       <div className="logo">
@@ -36,9 +34,9 @@ const Account = () => {
 
         <h1>Profil de {dataLogin}</h1>
         <button
-          id="button-logout"
           className="button-form-account"
           type="submit"
+          onClick={buttonLogout}
         >
           SE DÉCONNECTER
         </button>

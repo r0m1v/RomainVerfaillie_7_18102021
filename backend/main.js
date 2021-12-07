@@ -1,7 +1,9 @@
 require("dotenv").config();
 require("./config/db");
 require("./models/index");
+const authMiddleware = require("./middleware/auth");
 const userRoutes = require("./routes/user");
+const postRoutes = require("./routes/post");
 
 const express = require("express");
 
@@ -30,5 +32,6 @@ app.listen(8080, (req, res, next) => {
 });
 
 app.use("/api/auth", userRoutes); //route attendu par le frontend
+app.use("/api/post", authMiddleware, postRoutes); //route attendu par le frontend
 
 module.exports = app;

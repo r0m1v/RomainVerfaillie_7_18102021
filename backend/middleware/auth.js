@@ -6,20 +6,21 @@ const jwt = require("jsonwebtoken");
 const db = require("../models");
 
 module.exports = async (req, res, next) => {
-  //Récupère le token dans le header
-  const token = req.headers.authorization.split(" ")[1]; //split l'espace pour retourner un tableau et récupérer le 2é élement
-  //Permet de décoder le token
-  const decodedToken = jwt.verify(token, randomToken);
-  //Permet de récupérer le userId
-  const userId = decodedToken.userId;
-  const user = await db.users.findOne({ where: { id: userId } });
+  try {
+    //Récupère le token dans le header
+    const token = req.headers.authorization.split(" ")[1]; //split l'espace pour retourner un tableau et récupérer le 2é élement
+    //Permet de décoder le token
+    const decodedToken = jwt.verify(token, randomToken);
+    //Permet de récupérer le userId
+    const userId = decodedToken.userId;
+    const user = await db.users.findOne({ where: { id: userId } });
 
-  console.log({ decodedToken, userId, user });
-
-  if (user) {
+    if (!user) {
+      throw new Error("Impossible de trouver l'utilisateur");
+    }
     req.user = user;
     next();
-  } else {
+  } catch (err) {
     next("Utilisateur non trouvé !");
   }
 };

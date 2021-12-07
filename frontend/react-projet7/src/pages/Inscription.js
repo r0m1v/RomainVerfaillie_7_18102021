@@ -38,7 +38,7 @@ const Inscription = () => {
         type: "manual",
         message: err.message,
       });
-      setMessage("Erreur");
+      setMessage("Le pseudo doit être composé de 4 caractères minimum");
     }
   };
   console.log({ errors });
@@ -51,8 +51,8 @@ const Inscription = () => {
           <br />
           <label htmlFor="username">PSEUDO * </label>
           <input
+            placeholder="4 caractères min."
             className="field-inscr"
-            defaultValue={"Johndoe"}
             type="text"
             name="username"
             id="username"
@@ -66,6 +66,7 @@ const Inscription = () => {
           />
           <label htmlFor="password">MOT DE PASSE * </label>
           <input
+            placeholder="6 caractères min."
             className="field-inscr"
             type="password"
             {...register("password")}
@@ -83,7 +84,7 @@ const Inscription = () => {
             {isSubmitSuccessful && <span>Merci pour l'inscription</span>}
           </div>
           <div className="mess-err">
-          {message && <p style={{ color: "red" }}>{message}</p>}
+            {message && <p style={{ color: "red" }}>{message}</p>}
           </div>
         </form>
       </div>

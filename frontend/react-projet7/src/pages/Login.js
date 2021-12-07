@@ -15,7 +15,7 @@ const Login = () => {
     mode: "onChange",
     resolver: yupResolver(schema),
   });
-  const { errors, isSubmitting, isSubmitSuccessful } = formState;
+  const { errors, isSubmitting } = formState;
   const onSubmit = async (data) => {
     try {
       const res = await fetch("http://localhost:8080/api/auth/login", {
