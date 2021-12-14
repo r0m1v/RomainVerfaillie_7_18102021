@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import TextInput from "../components/TextInput";
 
 const Account = () => {
   let dataLogin = localStorage.getItem("username");
@@ -11,6 +12,7 @@ const Account = () => {
 
   return (
     <div className="account">
+      <TextInput toto="première valeur par defaut (content)" />
       <div className="logo">
         <img src="./images/icon-white.png" alt="logo" />
       </div>
@@ -41,18 +43,20 @@ const Account = () => {
           SE DÉCONNECTER
         </button>
       </div>
+      <form>
+        <button>Supprimer compte</button>
+      </form>
       <div className="formatting-newpost">
         <form className="account-form">
           <h1>Nouveau post :</h1>
           <textarea maxlength="280" placeholder="280 caractères max"></textarea>
           <input type="file"></input>
-          <button type="submit">Publier</button>
+          {/* <button type="submit" onClick={buttonPublish}>
+    Publier
+  </button> */}
         </form>
       </div>
-      {/* <form onSubmit={handleSubmit(onSubmit)}>
-      <button type="button" onClick={() => unregister("username", "email", "password")}>Supprimer compte</button>
-      <input type="submit" />
-    </form> */}
+      {/* <postToFill test=""/> */}
     </div>
   );
 };

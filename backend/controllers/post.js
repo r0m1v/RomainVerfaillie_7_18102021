@@ -7,6 +7,7 @@ exports.getAllPost = async (req, res) => {
     data: await Post.findAll(),
   });
 };
+
 //Pour la création des posts
 exports.addPost = async (req, res) => {
   // récup user dans la requête
@@ -34,6 +35,7 @@ exports.addPost = async (req, res) => {
   //   }
   // ).then(result => res.json(result));
 };
+
 //Pour la modification des posts
 exports.modifyPost = async (req, res) => {
   try {
@@ -43,30 +45,39 @@ exports.modifyPost = async (req, res) => {
         userId: req.user.id,
       },
     });
-  
+
     post.message = req.body.message;
     res.json(await post.save());
   } catch (err) {
     res.status(404);
     res.json({
-      error: "post non trouvé"
+      error: "post non trouvé",
     });
   }
 };
+
 //Pour la supprésion des posts
 exports.deletePost = async (req, res) => {
   try {
+    const condition = {
+      id: req.params.id,
+      userId: req.user.id,
+    };
+    // si user.isAdmin alors il peut supprimer
+
+    if (req.user.isAdmin) {
+      delete condition.userId;
+    }
+
     const post = await Post.findOne({
-      where: {
-        id: req.params.id,
-        userId: req.user.id,
-      },
+      where: condition,
     });
+
     res.json(await post.destroy());
   } catch (err) {
     res.status(404);
     res.json({
-      error: "post non trouvé"
+      error: "post non trouvé",
     });
   }
 };

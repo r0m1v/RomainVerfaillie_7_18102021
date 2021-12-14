@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useForm } from "react-hook-form";
 import Navigation from "../components/Navigation";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -79,30 +79,3 @@ const Login = () => {
 };
 
 export default Login;
-
-// import React, {useState} from "react";
-// import axios from "axios";
-// import Navigation from "../components/Navigation";
-
-// const Login = () => {
-// const [email, setEmail] = useState("");
-// const [password, setPassword] = useState("");
-// const handleLogin = (e) => {
-// }
-//   return (
-//     <div>
-//       <Navigation />
-//       <div className="formatting-form">
-//         <div className="login-form">
-//           <form action="" onSubmit={handleLogin} id="login_form">
-//             <input type = "submit" />
-//             <input type="submit" value ="Se connecter" className="button-form">
-//               SE CONNECTER
-//             </input>
-//           </form>
-//         </div>
-//         </div>
-//         </div>
-//   )};
-
-// export default Login;

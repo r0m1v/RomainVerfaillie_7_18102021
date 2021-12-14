@@ -41,14 +41,20 @@ exports.addMessage = async (req, res) => {
 exports.deleteMessage = async (req, res) => {
   // récup user dans la requête
   const user = req.user;
+  const condition = {
+    id: parseInt(req.params.messageId, 10),
+    postId: parseInt(req.params.postId, 10),
+    userId: user.id,
+  };
+  // si user.isAdmin alors il peut supprimer
+
+  if (user.isAdmin) {
+    delete condition.userId;
+  }
 
   try {
     const message = await Message.findOne({
-      where: {
-        id: parseInt(req.params.messageId, 10),
-        postId: parseInt(req.params.postId, 10),
-        userId: user.id,
-      },
+      where: condition,
     });
     res.json(await message.destroy());
   } catch (err) {
