@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 
+const messageCtrl = require("../controllers/message");
 const postCtrl = require("../controllers/post");
-const authMiddleware = require("../middleware/auth");
 
 // pour lire une liste posts
 router.get("", postCtrl.getAllPost);
@@ -15,5 +15,14 @@ router.put("/:id", postCtrl.modifyPost);
 
 // pour supprimer un post
 router.delete("/:id", postCtrl.deletePost);
+
+// pour lire les messages d'un post
+router.get("/:postId/message", messageCtrl.getMessages);
+
+// pour ajouter un message pour un post
+router.post("/:postId/message", messageCtrl.addMessage);
+
+// pour supprimer un message pour un post
+router.delete("/:postId/message/:messageId", messageCtrl.deleteMessage);
 
 module.exports = router;

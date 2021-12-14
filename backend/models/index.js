@@ -1,4 +1,5 @@
 const sequelize = require("../config/db");
+const MessageSchema = require("./message");
 const PostSchema = require("./post");
 const UserSchema = require("./user");
 
@@ -9,22 +10,26 @@ sequelize
     console.log(err);
   });
 
+const Message = sequelize.define("messages", MessageSchema);
 const Post = sequelize.define("posts", PostSchema);
 const User = sequelize.define("users", UserSchema);
 
 // Création des relations entre les différents table
+
+// relation post / user
 User.hasMany(Post);
 Post.belongsTo(User);
 
-// db.messages = require("./Message.js")(sequelize, Sequelize);
+// relation post / message
+Post.hasMany(Message);
+Message.belongsTo(Post);
 
-// db.posts.hasMany(db.messages);
-// db.messages.belongsTo(db.posts);
-
-// db.users.hasMany(db.messages);
-// db.messages.belongsTo(db.users);
+// relation user / message
+User.hasMany(Message);
+Message.belongsTo(User);
 
 module.exports = {
+  Message,
   Post,
   User,
 };
