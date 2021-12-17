@@ -33,6 +33,7 @@ const Login = () => {
       setMessage(responseData.message);
       localStorage.setItem("access_token", responseData.token);
       localStorage.setItem("username", responseData.username);
+      localStorage.setItem("userId", responseData.userId);
       window.location = "../Account";
     } catch (err) {
       // faire en sorte d'afficher un message d'erreur pour l'utilisateur
