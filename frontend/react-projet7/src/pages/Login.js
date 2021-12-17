@@ -67,7 +67,7 @@ const Login = () => {
               disabled={isSubmitting}
               className="button-form"
             >
-              SE CONNECTER
+              SE CONNECTER<i class="fas fa-power-off"></i>
             </button>
           </div>
           <div className="mess-err">

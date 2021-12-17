@@ -52,6 +52,9 @@ body {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   margin-bottom: 2em;
 }
 
@@ -65,25 +68,11 @@ body {
   height: 100px;
 }
 
-.fa-camera {
-  position: relative;
-  top: 85px;
-  left: 50px;
-}
-
 .formatting-newpost {
   background-color: #f2f3f4;
   border: 4px solid #0047a3;
   border-radius: 20px;
   padding: 1em;
-}
-
-.button-form-account {
-  height: 50px;
-  position: relative;
-  bottom: -50px;
-  border-radius: 50px;
-  border: solid #0047a3;
 }
 
 .formatting-form,
@@ -138,6 +127,26 @@ textarea {
           flex-direction: column;
 }
 
+.mess-thx {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: green;
+}
+
+.mess-err {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: red;
+}
+
 .button-form {
   border-radius: 50px;
   background-color: #9edbff;
@@ -145,5 +154,34 @@ textarea {
   border: solid #0047a3;
   padding: 1em;
   font-weight: 600;
+}
+
+.button-form-account {
+  height: 30px;
+  border-radius: 50px;
+  border: solid #0047a3;
+}
+
+.button-delete-account {
+  border: solid 2px red;
+  border-radius: 50px;
+  margin-top: 1em;
+}
+
+.fa-camera {
+  position: relative;
+  top: 85px;
+  left: 50px;
+}
+
+.fa-sign-out-alt,
+.fa-user-slash {
+  padding-left: 0.5em;
+  color: red;
+}
+
+.fa-power-off {
+  padding-left: 0.5em;
+  color: green;
 }
 /*# sourceMappingURL=index.css.map */

@@ -9,16 +9,19 @@ const Navigation = () => {
       </div>
       <div className="links-home">
         <NavLink exact to="/" activeClassName="nav-active">
-          <h2><i className="fas fa-home"></i> Accueil</h2>
+          <h2>
+            <i className="fas fa-home"></i> Accueil
+          </h2>
         </NavLink>
         <NavLink exact to="/inscription" activeClassName="nav-active">
-          <h2><i className="fas fa-user-edit"></i> Inscription</h2>
+          <h2>
+            <i className="fas fa-user-edit"></i> Inscription
+          </h2>
         </NavLink>
         <NavLink exact to="/connexion" activeClassName="nav-active">
-          <h2><i className="fas fa-user"></i> Connexion</h2>
-        </NavLink>
-        <NavLink exact to="/account" activeClassName="nav-active">
-          <h2>account</h2>
+          <h2>
+            <i className="fas fa-user"></i> Connexion
+          </h2>
         </NavLink>
       </div>
     </div>

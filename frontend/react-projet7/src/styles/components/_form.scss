@@ -1,5 +1,5 @@
 .formatting-form,
-label{
+label {
   display: flex;
   justify-content: center;
 }
@@ -12,7 +12,7 @@ label{
   width: 20em;
 }
 
-textarea{
+textarea {
   resize: none;
 }
 
@@ -29,27 +29,18 @@ textarea{
   margin-bottom: 4em;
 }
 
-.account-form{
-  display:flex;
+.account-form {
+  display: flex;
   flex-direction: column;
 }
 
-.button-form {
-  border-radius: 50px;
-  background-color: $bgcolor-button;
-  margin-top: 2em;
-  border: solid $bgcolor-main;
-  padding: 1em;
-  font-weight: 600;
-}
-
-.mess-thx{
+.mess-thx {
   display: flex;
   justify-content: center;
   color: green;
 }
 
-.mess-err{
+.mess-err {
   display: flex;
   justify-content: center;
   color: red;

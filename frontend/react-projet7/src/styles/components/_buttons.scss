@@ -1,0 +1,20 @@
+.button-form {
+  border-radius: 50px;
+  background-color: $bgcolor-button;
+  margin-top: 2em;
+  border: solid $bgcolor-main;
+  padding: 1em;
+  font-weight: 600;
+}
+
+.button-form-account {
+  height: 30px;
+  border-radius: 50px;
+  border: solid $bgcolor-main;
+}
+
+.button-delete-account {
+  border: solid 2px red;
+  border-radius: 50px;
+  margin-top: 1em;
+}

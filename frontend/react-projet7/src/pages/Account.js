@@ -37,13 +37,12 @@ const Account = () => {
           className="button-form-account"
           type="submit"
           onClick={buttonLogout}
-        >
-          SE DÉCONNECTER
+        >Déconnexion<i class="fas fa-sign-out-alt"></i>
         </button>
       </div>
       <PostToFill toto="première valeur par defaut (content)" />
       <form>
-        <button
+        <button className="button-delete-account"
           onClick={() => {
             if (
               window.confirm(
@@ -53,7 +52,7 @@ const Account = () => {
               deleteUser();
           }}
         >
-          Supprimer compte
+          Supprimer compte <i class="fas fa-user-slash"></i>
         </button>
       </form>
     </div>

@@ -6,6 +6,7 @@
 .formatting-top-account {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   margin-bottom: 2em;
 }
 
@@ -19,21 +20,9 @@
   height: 100px;
 }
 
-.fa-camera {
-  position: relative;
-  top: 85px;
-  left: 50px;
-}
-
 .formatting-newpost {
   background-color: $bgcolor-secondary;
   border: 4px solid $bgcolor-main;
   border-radius: 20px;
   padding: 1em;
-}
-
-.button-form-account {
-  height: 50px;
-  border-radius: 50px;
-  border: solid $bgcolor-main;
 }
