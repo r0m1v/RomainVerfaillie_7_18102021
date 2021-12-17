@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import TextInput from "../components/TextInput";
+import React from "react";
+import PostToFill from "../components/PostToFill";
 
 const Account = () => {
   let dataLogin = localStorage.getItem("username");
@@ -17,7 +17,7 @@ const Account = () => {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${dataToken}`
+        Authorization: `Bearer ${dataToken}`,
       },
       body: JSON.stringify(e),
     }).then(() => this.setState({ status: "Delete successful" }));
@@ -28,7 +28,6 @@ const Account = () => {
 
   return (
     <div className="account">
-      <TextInput toto="première valeur par defaut (content)" />
       <div className="logo">
         <img src="./images/icon-white.png" alt="logo" />
       </div>
@@ -42,19 +41,7 @@ const Account = () => {
           SE DÉCONNECTER
         </button>
       </div>
-
-      <div className="formatting-newpost">
-        <form className="account-form">
-          <h1>Nouveau post :</h1>
-          <textarea maxlength="280" placeholder="280 caractères max"></textarea>
-          <input
-            type="file"
-            onchange="previewPicture(this)"
-            accept=".gif"
-          ></input>
-          <button type="submit">Publier</button>
-        </form>
-      </div>
+      <PostToFill toto="première valeur par defaut (content)" />
       <form>
         <button
           onClick={() => {
