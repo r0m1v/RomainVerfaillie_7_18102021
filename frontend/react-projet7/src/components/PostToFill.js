@@ -51,7 +51,11 @@ const PostToFill = (props) => {
     <div className="formatting-newpost">
       <form className="account-form">
         <h1>Nouveau post :</h1>
-        <input type="file" accept=".gif" onChange={handleChange}></input>
+        <textarea
+          maxlength="280"
+          placeholder="280 caractères max"
+          onChange={handleChange}
+        ></textarea>
       </form>
       <button>Publier</button>
       <Post text={content} />
