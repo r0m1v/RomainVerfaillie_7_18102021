@@ -1,4 +1,17 @@
-body{
-    background-color: $bgcolor-body;
+body {
+  background-color: $bgcolor-body;
 }
 
+@media screen and (max-width: 768px) {
+  body {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    width: 80%;
+    margin: auto;
+  }
+}

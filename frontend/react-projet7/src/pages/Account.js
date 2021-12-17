@@ -32,7 +32,7 @@ const Account = () => {
         <img src="./images/icon-white.png" alt="logo" />
       </div>
       <div className="formatting-top-account">
-        <h1>Profil de {dataLogin}</h1>
+        <h1>{dataLogin}</h1>
         <button
           className="button-form-account"
           type="submit"

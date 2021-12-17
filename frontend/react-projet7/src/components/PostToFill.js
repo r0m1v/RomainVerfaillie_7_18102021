@@ -17,7 +17,7 @@ const Post = (props) => {
       <div className="post-content">{props.text}</div>
       <div className="post-publish">
         <p>Emplacement des posts publier</p>
-        <button className="button-modify-comment" title="modifier">
+        <button className="button-modify-comment" title="modifier commentaire">
           <i class="far fa-edit"></i>
         </button>
         <button className="button-delete-comment" title="supprimer commentaire">
@@ -51,11 +51,7 @@ const PostToFill = (props) => {
     <div className="formatting-newpost">
       <form className="account-form">
         <h1>Nouveau post :</h1>
-        <textarea
-          maxlength="280"
-          placeholder="280 caractères max"
-          onChange={handleChange}
-        ></textarea>
+        <input type="file" accept=".gif" onChange={handleChange}></input>
       </form>
       <button>Publier</button>
       <Post text={content} />

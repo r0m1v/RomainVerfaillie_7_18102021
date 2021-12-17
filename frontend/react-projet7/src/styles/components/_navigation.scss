@@ -26,3 +26,12 @@
     }
   }
 }
+
+@media screen and (max-width: 768px) {
+  .logo {
+    display: flex;
+    justify-content: center;
+    height: 300px;
+    margin-top: -5em;
+  }
+}

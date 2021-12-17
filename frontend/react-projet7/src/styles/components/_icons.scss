@@ -18,3 +18,9 @@
 .fa-comment-alt {
   padding-left: 0.5em;
 }
+
+@media screen and (max-width: 400px) {
+  .fa-sign-out-alt {
+    display: none;
+  }
+}

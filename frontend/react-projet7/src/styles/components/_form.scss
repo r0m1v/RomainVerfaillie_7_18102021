@@ -45,3 +45,17 @@ textarea {
   justify-content: center;
   color: red;
 }
+
+@media screen and (max-width: 768px) {
+  .inscr-form,
+  .login-form {
+    padding: 1em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .inscr-form,
+  .login-form {
+    padding: 1em;
+  }
+}
