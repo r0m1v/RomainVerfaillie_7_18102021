@@ -12,11 +12,30 @@ import React, { useState } from "react";
 //   buttonPublish();
 
 const Post = (props) => {
-  return <p>Texte : {props.text}</p>;
+  return (
+    <div className="formatting-post">
+      <div className="post-content">{props.text}</div>
+      <div className="post-publish">
+        <p>Emplacement des posts publier</p>
+        <button className="button-modify-comment" title="modifier">
+          <i class="far fa-edit"></i>
+        </button>
+        <button className="button-delete-comment" title="supprimer commentaire">
+          <i class="far fa-trash-alt"></i>
+        </button>
+      </div>
+      <div className="post-comment">
+        Commenter<i class="far fa-comment-alt"></i>
+      </div>
+      <form className="account-form">
+        <textarea maxlength="280" placeholder="280 caractères max"></textarea>
+      </form>
+    </div>
+  );
 };
 
 const PostToFill = (props) => {
-  const [content, setContent] = useState(props.toto);
+  const [content, setContent] = useState(props.content);
   //content la valeur par defaut / setContent les changements appliqués
   const handleChange = (event) => {
     event.preventDefault();
@@ -32,7 +51,11 @@ const PostToFill = (props) => {
     <div className="formatting-newpost">
       <form className="account-form">
         <h1>Nouveau post :</h1>
-        <textarea maxlength="280" placeholder="280 caractères max" onChange={handleChange}></textarea>
+        <textarea
+          maxlength="280"
+          placeholder="280 caractères max"
+          onChange={handleChange}
+        ></textarea>
       </form>
       <button>Publier</button>
       <Post text={content} />

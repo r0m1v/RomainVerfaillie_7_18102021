@@ -75,6 +75,17 @@ body {
   padding: 1em;
 }
 
+.formatting-post {
+  background-color: #f2f3f4;
+  border: 4px solid #0047a3;
+  border-radius: 20px;
+  padding: 1em;
+}
+
+.post-content {
+  background-color: white;
+}
+
 .formatting-form,
 label {
   display: -webkit-box;
@@ -168,6 +179,10 @@ textarea {
   margin-top: 1em;
 }
 
+.button-delete-comment {
+  margin-left: 0.5em;
+}
+
 .fa-camera {
   position: relative;
   top: 85px;
@@ -183,5 +198,9 @@ textarea {
 .fa-power-off {
   padding-left: 0.5em;
   color: green;
+}
+
+.fa-comment-alt {
+  padding-left: 0.5em;
 }
 /*# sourceMappingURL=index.css.map */

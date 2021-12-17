@@ -40,7 +40,7 @@ const Account = () => {
         >Déconnexion<i class="fas fa-sign-out-alt"></i>
         </button>
       </div>
-      <PostToFill toto="première valeur par defaut (content)" />
+      <PostToFill content="" />
       <form>
         <button className="button-delete-account"
           onClick={() => {
