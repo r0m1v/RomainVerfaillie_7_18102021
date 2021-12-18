@@ -67,11 +67,11 @@ const Login = () => {
               disabled={isSubmitting}
               className="button-form"
             >
-              SE CONNECTER<i class="fas fa-power-off"></i>
+              SE CONNECTER<i className="fas fa-power-off"></i>
             </button>
           </div>
           <div className="mess-err">
-          {message && <p style={{ color: "red" }}>{message}</p>}
+            {message && <p style={{ color: "red" }}>{message}</p>}
           </div>
         </form>
       </div>

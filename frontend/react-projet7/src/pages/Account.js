@@ -1,10 +1,12 @@
-import React from "react";
-import PostToFill from "../components/PostToFill";
+import React, { useEffect, useState } from "react";
+import Post from "../components/Post";
+import NewPost from "../components/NewPost";
 
 const Account = () => {
-  let dataLogin = localStorage.getItem("username");
-  let dataToken = localStorage.getItem("access_token");
-  //let userId = localStorage.getItem("userId");
+  const [posts, setPosts] = useState([]);
+  const [postCreatedCount, setPostCreatedCount] = useState(0);
+  const dataLogin = localStorage.getItem("username");
+  const dataToken = localStorage.getItem("access_token");
 
   const buttonLogout = (e) => {
     e.preventDefault();
@@ -14,9 +16,7 @@ const Account = () => {
 
   const deleteUser = (e) => {
     e.preventDefault();
-    if (
-      window.confirm("Êtes vous sure de vouloir supprimer votre compte ?")
-    ) {
+    if (window.confirm("Êtes vous sure de vouloir supprimer votre compte ?")) {
       fetch("http://localhost:8080/api/auth/delete/", {
         method: "DELETE",
         headers: {
@@ -30,6 +30,38 @@ const Account = () => {
     }
   };
 
+  const publishPost = (postContent) => {
+    fetch("http://localhost:8080/api/post", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${dataToken}`,
+      },
+      body: JSON.stringify({ message: postContent }),
+    }).then((res) => {
+      setPostCreatedCount((count) => count + 1);
+    });
+  };
+
+  // récupération des posts
+  const fetchPosts = () => {
+    fetch("http://localhost:8080/api/post", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${dataToken}`,
+      },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((posts) => {
+        setPosts(posts.data);
+      });
+  };
+
+  useEffect(fetchPosts, [postCreatedCount]);
+
   return (
     <div className="account">
       <div className="logo">
@@ -42,16 +74,19 @@ const Account = () => {
           type="submit"
           onClick={buttonLogout}
         >
-          Déconnexion<i class="fas fa-sign-out-alt"></i>
+          Déconnexion<i className="fas fa-sign-out-alt"></i>
         </button>
       </div>
-      <PostToFill content="" />
+      <NewPost onPublish={publishPost} />
+      {posts.map((post) => {
+        return <Post key={post.id} id={post.id} text={post.message} />;
+      })}
       <button
         className="button-delete-account"
         type="button"
         onClick={deleteUser}
       >
-        Supprimer compte <i class="fas fa-user-slash"></i>
+        Supprimer compte <i className="fas fa-user-slash"></i>
       </button>
     </div>
   );
