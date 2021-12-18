@@ -1,10 +1,18 @@
 // CREATION DE POSTS
+const Sequelize = require("sequelize");
 const { Post, User } = require("../models");
 
 //Pour la lecture des posts
 exports.getAllPost = async (req, res) => {
   res.json({
-    data: await Post.findAll(),
+    data: await Post.findAll(
+      {
+        include: [{
+          model: User,
+          where: { user: Sequelize.col('userId') }
+        }],
+      }
+    ),
   });
 };
 

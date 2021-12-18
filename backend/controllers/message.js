@@ -1,3 +1,4 @@
+const Sequelize = require("sequelize");
 const { Message, Post, User } = require("../models");
 
 // lister les messages pour un post
@@ -8,6 +9,10 @@ exports.getMessages = async (req, res) => {
         where: {
           postId: parseInt(req.params.postId, 10),
         },
+        include: [{
+          model: User,
+          where: { user: Sequelize.col('userId') }
+        }],
       }
       // {
       //   include: [Post],
