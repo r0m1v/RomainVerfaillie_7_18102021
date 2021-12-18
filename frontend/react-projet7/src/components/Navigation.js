@@ -8,11 +8,6 @@ const Navigation = () => {
         <img src="./images/icon-white.png" alt="logo" />
       </div>
       <div className="links-home">
-        <NavLink exact to="/" activeClassName="nav-active">
-          <h2>
-            <i className="fas fa-home"></i> Accueil
-          </h2>
-        </NavLink>
         <NavLink exact to="/inscription" activeClassName="nav-active">
           <h2>
             <i className="fas fa-user-edit"></i> Inscription

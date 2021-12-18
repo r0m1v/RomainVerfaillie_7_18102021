@@ -8,6 +8,10 @@ const Account = () => {
   const dataLogin = localStorage.getItem("username");
   const dataToken = localStorage.getItem("access_token");
 
+  if (!dataToken) {
+    window.location = "/";
+  }
+
   const buttonLogout = (e) => {
     e.preventDefault();
     localStorage.clear();
