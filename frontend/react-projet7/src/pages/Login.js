@@ -34,6 +34,7 @@ const Login = () => {
       localStorage.setItem("access_token", responseData.token);
       localStorage.setItem("username", responseData.username);
       localStorage.setItem("userId", responseData.userId);
+      localStorage.setItem("userIsAdmin", responseData.isAdmin);
       window.location = "../Account";
     } catch (err) {
       // faire en sorte d'afficher un message d'erreur pour l'utilisateur

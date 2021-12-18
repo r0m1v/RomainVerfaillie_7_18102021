@@ -5,14 +5,15 @@ const { Post, User } = require("../models");
 //Pour la lecture des posts
 exports.getAllPost = async (req, res) => {
   res.json({
-    data: await Post.findAll(
-      {
-        include: [{
+    data: await Post.findAll({
+      include: [
+        {
           model: User,
-          where: { user: Sequelize.col('userId') }
-        }],
-      }
-    ),
+          where: { user: Sequelize.col("userId") },
+        },
+      ],
+      order: [["createdAt", "DESC"]],
+    }),
   });
 };
 

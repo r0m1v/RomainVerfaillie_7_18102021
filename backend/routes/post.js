@@ -22,6 +22,9 @@ router.get("/:postId/message", messageCtrl.getMessages);
 // pour ajouter un message pour un post
 router.post("/:postId/message", messageCtrl.addMessage);
 
+// pour modifier un message pour un post
+router.put("/:postId/message/:messageId", messageCtrl.modifyMessage);
+
 // pour supprimer un message pour un post
 router.delete("/:postId/message/:messageId", messageCtrl.deleteMessage);
 

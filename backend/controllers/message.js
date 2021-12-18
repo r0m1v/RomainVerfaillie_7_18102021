@@ -9,10 +9,12 @@ exports.getMessages = async (req, res) => {
         where: {
           postId: parseInt(req.params.postId, 10),
         },
-        include: [{
-          model: User,
-          where: { user: Sequelize.col('userId') }
-        }],
+        include: [
+          {
+            model: User,
+            where: { user: Sequelize.col("userId") },
+          },
+        ],
       }
       // {
       //   include: [Post],
@@ -40,6 +42,27 @@ exports.addMessage = async (req, res) => {
       }
     )
   );
+};
+
+//Pour la modification des messages
+exports.modifyMessage = async (req, res) => {
+  try {
+    const message = await Message.findOne({
+      where: {
+        id: parseInt(req.params.messageId, 10),
+        postId: parseInt(req.params.postId, 10),
+        userId: req.user.id,
+      },
+    });
+
+    message.content = req.body.message;
+    res.json(await message.save());
+  } catch (err) {
+    res.status(404);
+    res.json({
+      error: "post non trouvé",
+    });
+  }
 };
 
 // supprimer un message pour un post

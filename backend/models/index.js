@@ -21,7 +21,7 @@ User.hasMany(Post);
 Post.belongsTo(User);
 
 // relation post / message
-Post.hasMany(Message);
+Post.hasMany(Message, { onDelete: "CASCADE", hooks: true });
 Message.belongsTo(Post);
 
 // relation user / message
