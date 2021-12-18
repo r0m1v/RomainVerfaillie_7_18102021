@@ -31,7 +31,6 @@ const NewPost = (props) => {
         ></textarea>
       </form>
       <button onClick={onPublish}>Publier</button>
-      <button onClick={handleClear}>Clear</button>
     </div>
   );
 };

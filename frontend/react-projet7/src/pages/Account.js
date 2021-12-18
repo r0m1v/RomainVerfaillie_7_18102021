@@ -4,7 +4,7 @@ import NewPost from "../components/NewPost";
 
 const Account = () => {
   const [posts, setPosts] = useState([]);
-  const [postCreatedCount, setPostCreatedCount] = useState(0);
+  const [lastUpdateTime, setLastUpdateTime] = useState();
   const dataLogin = localStorage.getItem("username");
   const dataToken = localStorage.getItem("access_token");
 
@@ -39,7 +39,7 @@ const Account = () => {
       },
       body: JSON.stringify({ message: postContent }),
     }).then((res) => {
-      setPostCreatedCount((count) => count + 1);
+      setLastUpdateTime(Date.now());
     });
   };
 
@@ -60,7 +60,22 @@ const Account = () => {
       });
   };
 
-  useEffect(fetchPosts, [postCreatedCount]);
+  // suppression d'un post
+  const deletePost = (postToDelete) => {
+    if (window.confirm("Êtes vous sure de vouloir supprimer ce post ?")) {
+      fetch(`http://localhost:8080/api/post/${postToDelete.id}`, {
+        method: "DELETE",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${dataToken}`,
+        },
+      }).then((res) => {
+        setLastUpdateTime(Date.now());
+      });
+    }
+  };
+
+  useEffect(fetchPosts, [lastUpdateTime]);
 
   return (
     <div className="account">
@@ -78,8 +93,9 @@ const Account = () => {
         </button>
       </div>
       <NewPost onPublish={publishPost} />
+      <h1>Fil d'actualités :</h1>
       {posts.map((post) => {
-        return <Post key={post.id} id={post.id} text={post.message} />;
+        return <Post key={post.id} post={post} onDelete={deletePost} />;
       })}
       <button
         className="button-delete-account"
