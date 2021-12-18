@@ -38,7 +38,7 @@ const Comment = (props) => {
           </p>
           {dataUserId == props.comment.userId || dataUserIsAdmin ? (
             <div>
-              {dataUserIsAdmin ? null : (
+              {dataUserId == props.comment.userId ? (
                 <button
                   className="button-modify-comment"
                   title="modifier commentaire"
@@ -46,7 +46,7 @@ const Comment = (props) => {
                 >
                   <i className="far fa-edit"></i>
                 </button>
-              )}
+              ) : null}
               <button
                 className="button-delete-comment"
                 title="supprimer commentaire"
