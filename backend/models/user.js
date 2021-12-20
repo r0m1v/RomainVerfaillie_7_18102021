@@ -4,7 +4,7 @@ const Sequelize = require("sequelize");
 const User = {
   username: {
     unique: true,
-    type: Sequelize.STRING(16),
+    type: Sequelize.STRING(12),
     allowNull: false,
     validate: {
       len: [4, 12],
