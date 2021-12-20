@@ -30,7 +30,11 @@ const NewPost = (props) => {
           value={content}
         ></textarea>
       </form>
-      <button onClick={onPublish}>Publier</button>
+      <div className="formatting-button-publish-newpost">
+        <button className="button-publish-newpost" onClick={onPublish}>
+          Publier
+        </button>
+      </div>
     </div>
   );
 };

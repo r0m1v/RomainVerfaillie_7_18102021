@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-// Define schema
+// Schema
 const Post = {
   message: {
     allowNull: false,

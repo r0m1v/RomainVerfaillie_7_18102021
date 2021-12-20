@@ -32,7 +32,7 @@ const NewComment = (props) => {
           onChange={handleChange}
           value={content}
         ></textarea>
-        <button type="button" onClick={onPublish}>
+        <button className="button-publish-comment" type="button" onClick={onPublish}>
           Publier
         </button>
       </form>

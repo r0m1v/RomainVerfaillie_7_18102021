@@ -1,6 +1,6 @@
 const Sequelize = require("sequelize");
 
-// Define schema
+// Schema
 const User = {
   username: {
     unique: true,
@@ -9,7 +9,6 @@ const User = {
     validate: {
       len: [4, 12],
     },
-    // allowNull defaults to true
   },
   email: {
     unique: true,
@@ -23,8 +22,6 @@ const User = {
   password: {
     type: Sequelize.STRING(255),
     allowNull: false,
-
-    // allowNull defaults to true
   },
   isAdmin: {
     type: Sequelize.BOOLEAN,

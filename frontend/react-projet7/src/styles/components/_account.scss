@@ -21,10 +21,16 @@
 }
 
 .formatting-newpost {
-  background-color: $bgcolor-secondary;
+  background-color: $bgcolor-newpost;
   border: 4px solid $bgcolor-main;
   border-radius: 20px;
   padding: 1em;
+}
+
+.formatting-button-publish-newpost{
+  display: flex;
+  justify-content: center;
+  margin-top: 1em;
 }
 
 .formatting-post{
@@ -42,20 +48,31 @@
 }
 
 .post-content{
-border: 1px solid black;
+border: 3px solid $color-post-border-content;
 margin-bottom: 1em;
 padding: 0 0.4em;
+background-color: $bgcolor-post-border-content;
 }
 
 .line-comment{
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  background-color: $bgcolor-secondary;
+  background-color: $bgcolor-comment-published;
   border-radius: 20px;
   margin: 0.5em  0;
-  padding: 0 0.4em;
+  padding: 0.3em 0.4em;
 }
+
+.formatting-comment-published{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+// .comment-published{
+//   background-color: $bgcolor-comment-published;
+// }
 
 @media screen and (max-width: 1024px) {
   .account {
